@@ -39,10 +39,10 @@ self.addEventListener('install', event => {
 self.addEventListener('activate', event => {
     const respuesta = caches.keys().then(keys => {
         keys.forEach(key => {
-            if (key != STATIC_CACHE && key.includes('static')) {
+            if (key !== STATIC_CACHE && key.includes('static')) {
                 return caches.delete(key)
             }
-            if (key != DYMANIC_CACHE && key.includes('dynamic')) {
+            if (key !== DYMANIC_CACHE && key.includes('dynamic')) {
                 return caches.delete(key)
             }
         })
